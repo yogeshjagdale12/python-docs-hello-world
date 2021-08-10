@@ -37,6 +37,6 @@ node('master')
     {
        sh """
         docker stop \$(docker ps -a -q)
-        docker run -d -p 5000:5000 simple-flask-app
+        docker run -d -p 5555:5555 simple-flask-app
         """ 
     }

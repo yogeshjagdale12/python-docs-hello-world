@@ -14,7 +14,7 @@ class TestFlaskScript(unittest.TestCase):
         """Test root context."""
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(b'Hello, World! How are you', response.data)
+        self.assertEqual(b'Hello, World! How do you do', response.data)
 
 
 if __name__ == '__main__':

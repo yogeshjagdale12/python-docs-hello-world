@@ -1,7 +1,7 @@
 import unittest
 from flask import Flask
 
-from src import sample_flask_app as myapp
+from src import app as myapp
 
 class TestFlaskScript(unittest.TestCase):
 

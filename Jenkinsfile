@@ -4,6 +4,10 @@ node('master')
         {
         CheckoutFunc(GitBranch, GitRepo)
         }
+    stage('Test') 
+        {
+        TestFunc()
+        }
      stage('Docker Build') 
         {
         builddocker()
@@ -26,6 +30,19 @@ node('master')
         ])   
     }
     
+    def TestFunc()
+    {
+        sh """
+        pytest test --html=myreport.html
+        """
+        publishHTML (target : [allowMissing: false,
+        alwaysLinkToLastBuild: true,
+        keepAll: true,
+        reportDir: '.',
+        reportFiles: 'myreport.html',
+        reportName: 'My Reports',
+        reportTitles: 'My Test Report'])
+    }
     def builddocker()
     {
         sh """
